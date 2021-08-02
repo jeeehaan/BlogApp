@@ -2,44 +2,19 @@
 
 namespace App\Models;
 
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Post
+class Post extends Model
 {
-    private static $blog_posts = [
-        [
-            "title" => "Judul Post Pertama",
-            "slug" => "judul-post-pertama",
-            "author" => "Jessy Hanifiah",
-            "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia dolore temporibus vel earum officia dolorum illo ad nobis non quaerat, eligendi, id vero eius sed maiores nisi modi obcaecati et quam aliquam nesciunt inventore amet ipsa dolor? Reiciendis, aperiam iure omnis ratione explicabo maiores voluptas ipsa animi, asperiores obcaecati velit nemo veritatis molestias cumque sapiente nulla ipsum eligendi voluptatum ullam quas illo sequi. Repellat rerum eaque expedita, accusamus quo minus cupiditate quibusdam sit odio minima perspiciatis, nam sapiente repudiandae tenetur!"
-        ],
+    use HasFactory;
 
-        [
-            "title" => "Judul Post Kedua",
-            "slug" => "judul-post-kedua",
-            "author" => "Jeeehaan",
-            "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia dolore temporibus vel earum officia dolorum illo ad nobis non quaerat, eligendi, id vero eius sed maiores nisi modi obcaecati et quam aliquam nesciunt inventore amet ipsa dolor? Reiciendis, aperiam iure omnis ratione explicabo maiores voluptas ipsa animi, asperiores obcaecati velit nemo veritatis molestias cumque sapiente nulla ipsum eligendi voluptatum ullam quas illo sequi. Repellat rerum eaque expedita, accusamus quo minus cupiditate quibusdam sit odio minima perspiciatis, nam sapiente repudiandae tenetur!"
-        ]
-    ];
-
-    public static function all()
-    {
-        return collect(self::$blog_posts);
-    }
-
-    public static function find($slug)
-    {
-        $posts = static::all();
-
-        // $post = [];
-        // foreach($posts as $p){
-        //     if($p["slug"]===$slug){
-        //         $post = $p;
-        //     }
-        // }
-
-        return $posts->firstWhere('slug', $slug);
-
-    }
+    protected $fillable = ['title', 'excerpt', 'body'];
 }
+
+// Post::create([
+//     "title" => "Judul Pertama",
+//     "slug" => "judul-pertama",
+//     "excerpt" => "lorem pertama",
+//     "body" => "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula magna, facilisis ut pharetra in, elementum eu justo. Suspendisse nisi nulla, pretium sed sapien non, varius suscipit orci. Integer ornare augue id congue egestas. In porttitor condimentum blandit. Nunc diam orci, fringilla at tempor et, pulvinar in neque. Donec rutrum elit in suscipit venenatis. Vivamus eget ante ut turpis vestibulum dignissim et ut nisl. Etiam eget sapien in tortor consequat malesuada. Cras aliquam, purus molestie suscipit rutrum, velit diam maximus orci, in porta ipsum purus eu risus.</p>"
+// ])
