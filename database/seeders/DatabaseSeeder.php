@@ -18,11 +18,12 @@ class DatabaseSeeder extends Seeder
     {
 
 
-        // User::create([
-        //     'name' => 'Jessy Hanifiah',
-        //     'email' => 'jessyhanifiah@gmail.com',
-        //     'password' => bcrypt('12345')
-        // ]);
+        User::create([
+            'name' => 'Jessy Hanifiah',
+            'username' => 'jeeehaan',
+            'email' => 'jessyhanifiah@gmail.com',
+            'password' => bcrypt('12345')
+        ]);
 
         // User::create([
         //     'name' => 'Jessy Hanif Bribisetya',
